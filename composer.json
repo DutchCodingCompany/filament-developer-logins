@@ -5,8 +5,7 @@
         "dutchcodingcompany",
         "laravel",
         "filament",
-        "filament-developer-logins",
-        "testing"
+        "filament-developer-logins"
     ],
     "homepage": "https://github.com/dutchcodingcompany/filament-developer-logins",
     "support": {
