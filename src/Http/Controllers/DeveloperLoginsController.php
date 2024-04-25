@@ -28,8 +28,7 @@ class DeveloperLoginsController extends Controller
 
         $credentials = $request->validated('credentials');
         if (! in_array($credentials, $this->plugin->getUsers())) {
-
-                throw new ImplementationException('The user is not found in the defined users, please check the configuration of the plugin.');
+            throw new ImplementationException('The user is not found in the defined users, please check the configuration of the plugin.');
         }
 
         $model = (new ($this->plugin->getModelClass()))
