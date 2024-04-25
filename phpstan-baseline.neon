@@ -1,0 +1,26 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Class DutchCodingCompany\\\\FilamentDeveloperLogins\\\\Database\\\\Factories\\\\TestUserFactory extends generic class Illuminate\\\\Database\\\\Eloquent\\\\Factories\\\\Factory but does not specify its types\\: TModel$#"
+			count: 1
+			path: database/factories/TestUserFactory.php
+
+		-
+			message: "#^Class App\\\\Models\\\\User not found\\.$#"
+			count: 1
+			path: src/FilamentDeveloperLoginsPlugin.php
+
+		-
+			message: "#^Call to an undefined method object\\:\\:where\\(\\)\\.$#"
+			count: 1
+			path: src/Http/Controllers/DeveloperLoginsController.php
+
+		-
+			message: "#^Access to an undefined property DutchCodingCompany\\\\FilamentDeveloperLogins\\\\Tests\\\\Fixtures\\\\TestUser\\:\\:\\$is_admin\\.$#"
+			count: 1
+			path: tests/Fixtures/TestUser.php
+
+		-
+			message: "#^Parameter \\#1 \\$callback of static method Illuminate\\\\Database\\\\Eloquent\\\\Factories\\\\Factory\\<Illuminate\\\\Database\\\\Eloquent\\\\Model\\>\\:\\:guessFactoryNamesUsing\\(\\) expects callable\\(class\\-string\\<Illuminate\\\\Database\\\\Eloquent\\\\Model\\>\\)\\: class\\-string\\<Illuminate\\\\Database\\\\Eloquent\\\\Factories\\\\Factory\\>, Closure\\(string\\)\\: non\\-falsy\\-string given\\.$#"
+			count: 1
+			path: tests/TestCase.php

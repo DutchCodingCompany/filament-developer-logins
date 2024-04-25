@@ -1,0 +1,70 @@
+{
+    "name": "dutchcodingcompany/filament-developer-logins",
+    "description": "Add buttons to the login page of Filament to login as a specific user.",
+    "keywords": [
+        "dutchcodingcompany",
+        "laravel",
+        "filament",
+        "filament-developer-logins",
+        "testing"
+    ],
+    "homepage": "https://github.com/dutchcodingcompany/filament-developer-logins",
+    "support": {
+        "issues": "https://github.com/dutchcodingcompany/filament-developer-logins/issues",
+        "source": "https://github.com/dutchcodingcompany/filament-developer-logins"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Bram Raaijmakers",
+            "email": "bram@dutchcodingcompany.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^8.1",
+        "filament/filament": "^3.0",
+        "spatie/laravel-package-tools": "^1.15.0"
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^3.8",
+        "larastan/larastan": "^2.9",
+        "laravel/browser-kit-testing": "^7.2",
+        "nunomaduro/collision": "^7.9",
+        "orchestra/testbench": "^8.0",
+        "phpunit/phpunit": "^10.5",
+        "spatie/laravel-ray": "^1.26"
+    },
+    "autoload": {
+        "psr-4": {
+            "DutchCodingCompany\\FilamentDeveloperLogins\\": "src",
+            "DutchCodingCompany\\FilamentDeveloperLogins\\Tests\\": "tests",
+            "DutchCodingCompany\\FilamentDeveloperLogins\\Database\\Factories\\": "database/factories"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "DutchCodingCompany\\FilamentDeveloperLogins\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "analyse": "vendor/bin/phpstan analyse",
+        "test": "vendor/bin/phpunit"
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true,
+            "phpstan/extension-installer": true
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "DutchCodingCompany\\FilamentDeveloperLogins\\FilamentDeveloperLoginsServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
