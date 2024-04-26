@@ -57,4 +57,9 @@ class TestUser extends Model implements Authenticatable, FilamentUser
     {
         return $this->is_admin;
     }
+
+    public function getAuthPasswordName(): string
+    {
+        return 'test-user-auth-password-name';
+    }
 }
