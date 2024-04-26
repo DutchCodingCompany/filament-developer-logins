@@ -8,7 +8,6 @@ on:
       - 'phpunit.xml.dist'
       - 'composer.json'
       - 'composer.lock'
-  pull_request:
 
 jobs:
   test:
