@@ -14,7 +14,7 @@ This plugin allows you to enable one-click logins for your local Filament panels
 You can install the package via composer.
 
 ```bash
-composer require dutchcodingcompany/developer-logins
+composer require dutchcodingcompany/filament-developer-logins
 ```
 
 ## Usage
