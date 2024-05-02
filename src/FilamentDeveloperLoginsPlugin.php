@@ -8,11 +8,16 @@ use DutchCodingCompany\FilamentDeveloperLogins\Exceptions\ImplementationExceptio
 use Filament\Contracts\Plugin;
 use Filament\Facades\Filament;
 use Filament\Panel;
+use Filament\Support\Concerns\EvaluatesClosures;
 use Illuminate\Contracts\Auth\Authenticatable;
 
 class FilamentDeveloperLoginsPlugin implements Plugin
 {
+    use EvaluatesClosures;
+
     public Closure | bool $enabled = false;
+
+    public Closure | bool $switchable = true;
 
     /**
      * @var array<string, string>
@@ -78,9 +83,21 @@ class FilamentDeveloperLoginsPlugin implements Plugin
         return $this;
     }
 
-    public function getEnabled(): Closure | bool
+    public function getEnabled(): bool
     {
-        return $this->enabled;
+        return $this->evaluate($this->enabled);
+    }
+
+    public function switchable(Closure | bool $value): static
+    {
+        $this->switchable = $value;
+
+        return $this;
+    }
+
+    public function getSwitchable(): bool
+    {
+        return $this->evaluate($this->switchable);
     }
 
     /**

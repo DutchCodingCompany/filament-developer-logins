@@ -1,4 +1,4 @@
-@foreach ($users as $label => $email)
+@foreach ($users as $label => $credentials)
     @if ($loop->first)
         <div class="flex flex-col gap-y-6">
             <div class="relative flex items-center justify-center text-center">
@@ -22,10 +22,10 @@
             @csrf
 
             <input type="hidden" name="panel_id" value="{{ \Filament\Facades\Filament::getId() }}">
-            <input type="hidden" name="credentials" value="{{ $email }}">
+            <input type="hidden" name="credentials" value="{{ $credentials }}">
 
             <x-filament::button class="w-full" color="gray" outlined="true" type="submit">
-                {{ "$label ($email)" }}
+                {{ "$label ($credentials)" }}
             </x-filament::button>
         </form>
     @if ($loop->first)

@@ -13,7 +13,7 @@ parameters:
 		-
 			message: "#^Call to an undefined method object\\:\\:where\\(\\)\\.$#"
 			count: 1
-			path: src/Http/Controllers/DeveloperLoginsController.php
+			path: src/FilamentDevelopersLogin.php
 
 		-
 			message: "#^Access to an undefined property DutchCodingCompany\\\\FilamentDeveloperLogins\\\\Tests\\\\Fixtures\\\\TestUser\\:\\:\\$is_admin\\.$#"
