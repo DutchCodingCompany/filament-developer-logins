@@ -22,7 +22,8 @@ class FilamentDevelopersLogin
         }
 
         $model = (new ($plugin->getModelClass()))
-            ->where($plugin->getColumn(), $credentials)->firstOrFail();
+            ->where($plugin->getColumn(), $credentials)
+            ->firstOrFail();
 
         $panel->auth()->login($model);
 
