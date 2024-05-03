@@ -52,20 +52,21 @@ class FilamentDeveloperLoginsServiceProvider extends PackageServiceProvider
         /** @var FilamentDeveloperLoginsPlugin $plugin */
         $plugin = $panel->getPlugin('filament-developer-logins');
 
-        // Check if the plugin is enabled.
-        if (! $plugin->getEnabled()) {
-            return;
-        }
-
         FilamentView::registerRenderHook(
             PanelsRenderHook::AUTH_LOGIN_FORM_AFTER,
-            static fn (): string => Blade::render('<x-filament-developer-logins::developer-logins />'),
+            static function () use ($plugin) : ?string {
+                if (! $plugin->getEnabled()) {
+                    return null;
+                }
+
+                return Blade::render('<x-filament-developer-logins::developer-logins />');
+            },
         );
 
         FilamentView::registerRenderHook(
             PanelsRenderHook::GLOBAL_SEARCH_AFTER,
             static function () use ($plugin) : ?string {
-                if (! $plugin->getSwitchable()) {
+                if (! $plugin->getEnabled() || ! $plugin->getSwitchable()) {
                     return null;
                 }
 
