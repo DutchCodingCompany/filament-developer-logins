@@ -1,7 +1,7 @@
 # Filament Developer Logins
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/dutchcodingcompany/filament-developer-logins.svg?style=flat-square)](https://packagist.org/packages/dutchcodingcompany/filament-developer-logins)
-[![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/dutchcodingcompany/filament-developer-logins/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/dutchcodingcompany/filament-developer-logins/actions?query=workflow%3Arun-tests+branch%3Amain)
+[![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/dutchcodingcompany/filament-developer-logins/run-test.yml?branch=main&label=tests&style=flat-square)](https://github.com/dutchcodingcompany/filament-developer-logins/actions?query=workflow%3Arun-test+branch%3Amain)
 [![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/dutchcodingcompany/filament-developer-logins/php-cs-fixer.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/dutchcodingcompany/filament-developer-logins/actions?query=workflow%3A"Fix+PHP+code+styling"+branch%3Amain)
 [![Total Downloads](https://img.shields.io/packagist/dt/dutchcodingcompany/filament-developer-logins.svg?style=flat-square)](https://packagist.org/packages/dutchcodingcompany/filament-developer-logins)
 
