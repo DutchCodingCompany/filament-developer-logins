@@ -51,6 +51,19 @@ FilamentDeveloperLoginsPlugin::make()
     ->enabled(app()->environment('local'))
 ```
 
+### switchable()
+
+By default, a "Switch to" button is shown in the top right corner of the screen, so you can easily switch between the provided users. 
+If you want to disable this feature, you can use the switchable() method.
+
+```php
+// ...
+FilamentDeveloperLoginsPlugin::make()
+    ->switchable(false) // This also accepts a closure.
+```
+
+![example-screenshot.png](docs-assets/screenshots/switchable-screenshot.png)
+
 ### column()
 
 By default, the user column is set to `email`. If you want to use a different column, you can use the column() method.

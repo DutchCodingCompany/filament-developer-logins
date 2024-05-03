@@ -13,7 +13,12 @@ parameters:
 		-
 			message: "#^Call to an undefined method object\\:\\:where\\(\\)\\.$#"
 			count: 1
-			path: src/Http/Controllers/DeveloperLoginsController.php
+			path: src/FilamentDevelopersLogin.php
+
+		-
+			message: "#^Call to an undefined method Livewire\\\\Features\\\\SupportTesting\\\\Testable\\:\\:test\\(\\)\\.$#"
+			count: 3
+			path: tests/Feature/MenuLoginsTest.php
 
 		-
 			message: "#^Access to an undefined property DutchCodingCompany\\\\FilamentDeveloperLogins\\\\Tests\\\\Fixtures\\\\TestUser\\:\\:\\$is_admin\\.$#"

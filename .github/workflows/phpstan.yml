@@ -6,7 +6,9 @@ on:
       - '**.php'
       - '.github/workflows/phpstan.yml'
       - 'phpstan.neon.dist'
-    pull_request:
+  pull_request:
+    branches:
+      - '**'
 
 jobs:
   phpstan:

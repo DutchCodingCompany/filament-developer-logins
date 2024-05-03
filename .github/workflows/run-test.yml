@@ -9,6 +9,8 @@ on:
       - 'composer.json'
       - 'composer.lock'
   pull_request:
+    branches:
+      - '**'
 
 jobs:
   test:
