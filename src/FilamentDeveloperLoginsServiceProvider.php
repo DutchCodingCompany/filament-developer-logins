@@ -30,7 +30,7 @@ class FilamentDeveloperLoginsServiceProvider extends PackageServiceProvider
     public function packageRegistered(): void
     {
         $this->app->singleton(FilamentDevelopersLogin::class);
-        $this->app->alias(FilamentDevelopersLogin::class, 'filament-developers-login');
+        $this->app->bind('filament-developers-login', FilamentDevelopersLogin::class);
     }
 
     public function packageBooted(): void
