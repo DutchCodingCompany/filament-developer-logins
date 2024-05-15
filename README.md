@@ -7,7 +7,7 @@
 
 This plugin allows you to enable one-click logins for your local Filament panels, which is useful when developing a Filament project with multiple users and various roles.
 
-![example-screenshot.png](docs-assets/screenshots/example-screenshot.png)
+![example-screenshot.png](https://raw.githubusercontent.com/DutchCodingCompany/filament-developer-logins/main/docs-assets/screenshots/example-screenshot.png)
 
 ## Installation
 
@@ -62,7 +62,7 @@ FilamentDeveloperLoginsPlugin::make()
     ->switchable(false) // This also accepts a closure.
 ```
 
-![example-screenshot.png](docs-assets/screenshots/switchable-screenshot.png)
+![switchable-screenshot.png](https://raw.githubusercontent.com/DutchCodingCompany/filament-developer-logins/main/docs-assets/screenshots/switchable-screenshot.png)
 
 ### column()
 
