@@ -80,4 +80,29 @@ final class MenuLoginsTest extends TestCase
             ->call('loginAs', 'developer@dutchcodingcompany.com')
             ->assertForbidden();
     }
+
+	public function test_session_switched_when_switchable_is_true(): void
+	{
+		$authenticatedUser = TestUser::factory()->create();
+
+		$user = TestUser::factory()->create([
+			'email' => 'developer@dutchcodingcompany.com',
+			'is_admin' => true,
+		]);
+
+		FilamentDeveloperLoginsPlugin::current()
+			->enabled()
+			->switchable(true)
+			->users([
+				'Developer' => 'developer@dutchcodingcompany.com',
+			]);
+
+		Livewire::actingAs($authenticatedUser)
+			->test(MenuLogins::class)
+			->call('loginAs', 'developer@dutchcodingcompany.com')
+			->assertRedirect();
+
+		$this->assertAuthenticated();
+		$this->assertEquals($user->toArray(), Filament::auth()->user()->toArray());
+	}
 }
