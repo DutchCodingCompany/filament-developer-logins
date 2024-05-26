@@ -38,6 +38,6 @@ class MenuLogins extends Component
             abort(403);
         }
 
-        return FilamentDevelopersLogin::login(Filament::getPanel(), $this->plugin, $credentials);
+        return FilamentDevelopersLogin::login(Filament::getPanel(), $this->plugin, $credentials, true);
     }
 }

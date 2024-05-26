@@ -11,13 +11,13 @@ use Livewire\Features\SupportRedirects\Redirector;
 
 class FilamentDevelopersLogin
 {
-    public function login(Panel $panel, FilamentDeveloperLoginsPlugin $plugin, string $credentials): RedirectResponse | Redirector
+    public function login(Panel $panel, FilamentDeveloperLoginsPlugin $plugin, string $credentials, bool $switchable = false): RedirectResponse | Redirector
     {
         if (! in_array($credentials, $plugin->getUsers())) {
             throw new ImplementationException('The user is not found in the defined users, please check the configuration of the plugin.');
         }
 
-        if ($panel->auth()->check()) {
+        if ($panel->auth()->check() && !$switchable) {
             $panel->auth()->logout();
         }
 
