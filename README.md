@@ -88,10 +88,18 @@ FilamentDeveloperLoginsPlugin::make()
 
 ### RedirectTo()
 
-By default, the user will be redirected using the `Filament::getUrl()` method, which directs them to the dashboard. In the case of multi-tenancy, the user will also be redirected to the correct tenant. If you prefer to use a different route, you can utilize the redirectTo() method.
+By default, the user will be redirected using the `Filament::getUrl()` method, which directs them to the dashboard. In the case of multi-tenancy, the user will also be redirected to the correct tenant. If you prefer to use a different url, you can utilize the redirectTo() method.
+
 ```php
 FilamentDeveloperLoginsPlugin::make()
-    ->redirectTo('/custom-route')
+    ->redirectTo('/custom-url')
+```
+
+Since the routes are not yet registered when the plugin is created, you need to use a closure to redirect to a named route.
+
+```php
+FilamentDeveloperLoginsPlugin::make()
+    ->redirectTo(fn () => route('custom.route'))
 ```
 
 ## Testing

@@ -24,7 +24,7 @@ class FilamentDeveloperLoginsPlugin implements Plugin
      */
     public array $users = [];
 
-    public ?string $redirectTo = null;
+    public Closure | string | null $redirectTo = null;
 
     public ?string $panelId = null;
 
@@ -120,16 +120,16 @@ class FilamentDeveloperLoginsPlugin implements Plugin
         return $this->users;
     }
 
-    public function redirectTo(string $routeName): static
+    public function redirectTo(Closure | string $redirectTo): static
     {
-        $this->redirectTo = $routeName;
+        $this->redirectTo = $redirectTo;
 
         return $this;
     }
 
     public function getRedirectTo(): string | null
     {
-        return $this->redirectTo;
+        return $this->evaluate($this->redirectTo);
     }
 
     public function column(string $column): static
