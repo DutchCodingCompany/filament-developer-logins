@@ -29,8 +29,8 @@ In the `users` method you can define the users (note: the users must exist), the
     FilamentDeveloperLoginsPlugin::make()
         ->enabled()
         ->users([
-            'Admin' => 'admin@dutchcodingcompany.com',
-            'User' => 'user@dutchcodingcompany.com',
+            'Admin' => 'admin@example.com',
+            'User' => 'user@example.com',
         ])
 ]);
 ```
