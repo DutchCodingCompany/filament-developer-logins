@@ -8,6 +8,7 @@ use DutchCodingCompany\FilamentDeveloperLogins\Tests\Fixtures\TestUser;
 use DutchCodingCompany\FilamentDeveloperLogins\Tests\TestCase;
 use Filament\Facades\Filament;
 use Filament\Pages\Dashboard;
+use Filament\Panel;
 use Livewire\Livewire;
 
 final class MenuLoginsTest extends TestCase
@@ -80,4 +81,39 @@ final class MenuLoginsTest extends TestCase
             ->call('loginAs', 'developer@dutchcodingcompany.com')
             ->assertForbidden();
     }
+
+    public function test_component_is_only_rendered_in_panel_with_plugin(): void
+    {
+
+        $user = TestUser::factory()->create();
+
+        $this->actingAs($user)
+            ->get(Dashboard::getUrl(panel: $this->panelName))
+            ->assertSuccessful()
+            ->assertSeeLivewire(MenuLogins::class);
+
+
+        $this->actingAs($user)
+            ->get(Dashboard::getUrl(panel: $this->panelName . '-other' ))
+            ->assertSuccessful()
+            ->assertDontSeeLivewire(MenuLogins::class);
+    }
+
+    protected function registerTestPanel(): void
+    {
+        parent::registerTestPanel();
+        Filament::registerPanel(fn() => Panel::make()
+            ->darkMode(false)
+            ->id($this->panelName . '-other')
+            ->path($this->panelName  . '-other')
+            ->login()
+            ->pages([
+                Dashboard::class,
+            ])
+            ->plugins([
+            ]),
+        );
+    }
+
+
 }

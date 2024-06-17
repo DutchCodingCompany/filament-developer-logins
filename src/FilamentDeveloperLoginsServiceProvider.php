@@ -4,6 +4,7 @@ namespace DutchCodingCompany\FilamentDeveloperLogins;
 
 use DutchCodingCompany\FilamentDeveloperLogins\Livewire\MenuLogins;
 use DutchCodingCompany\FilamentDeveloperLogins\View\Components\DeveloperLogins;
+use Filament\Panel;
 use Filament\Facades\Filament;
 use Filament\Support\Concerns\EvaluatesClosures;
 use Filament\Support\Facades\FilamentView;
@@ -45,7 +46,8 @@ class FilamentDeveloperLoginsServiceProvider extends PackageServiceProvider
     protected static function registerRenderHooks(): void
     {
         $panel = Filament::getCurrentPanel();
-        if (is_null($panel) || ! $panel->hasPlugin('filament-developer-logins')) {
+
+        if(! self::enabledForPanel($panel)) {
             return;
         }
 
@@ -55,7 +57,8 @@ class FilamentDeveloperLoginsServiceProvider extends PackageServiceProvider
         FilamentView::registerRenderHook(
             PanelsRenderHook::AUTH_LOGIN_FORM_AFTER,
             static function () use ($plugin) : ?string {
-                if (! $plugin->getEnabled()) {
+
+                if (! $plugin->getEnabled() || ! self::enabledForPanel(Filament::getCurrentPanel())) {
                     return null;
                 }
 
@@ -66,12 +69,17 @@ class FilamentDeveloperLoginsServiceProvider extends PackageServiceProvider
         FilamentView::registerRenderHook(
             PanelsRenderHook::GLOBAL_SEARCH_AFTER,
             static function () use ($plugin) : ?string {
-                if (! $plugin->getEnabled() || ! $plugin->getSwitchable()) {
+                if (! $plugin->getEnabled() || ! $plugin->getSwitchable() || ! self::enabledForPanel(Filament::getCurrentPanel())) {
                     return null;
                 }
 
                 return Blade::render('@livewire(\'menu-logins\')');
             },
         );
+    }
+
+    protected static function enabledForPanel(?Panel $panel)
+    {
+        return ! is_null($panel) && $panel->hasPlugin('filament-developer-logins');
     }
 }
