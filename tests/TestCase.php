@@ -36,7 +36,7 @@ class TestCase extends Orchestra
         );
     }
 
-    protected function registerTestPanel(): void
+    protected function registerTestPanels(): void
     {
         Filament::registerPanel(
             fn (): Panel => Panel::make()
@@ -56,6 +56,18 @@ class TestCase extends Orchestra
                         ])
                         ->modelClass(TestUser::class),
                 ]),
+        );
+
+        Filament::registerPanel(fn () => Panel::make()
+            ->darkMode(false)
+            ->id($this->panelName.'-other')
+            ->path($this->panelName.'-other')
+            ->login()
+            ->pages([
+                Dashboard::class,
+            ])
+            ->plugins([
+            ]),
         );
     }
 
@@ -80,7 +92,7 @@ class TestCase extends Orchestra
 
     protected function getPackageProviders($app): array
     {
-        $this->registerTestPanel();
+        $this->registerTestPanels();
 
         return [
             FilamentServiceProvider::class,
