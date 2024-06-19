@@ -84,7 +84,6 @@ final class MenuLoginsTest extends TestCase
 
     public function test_component_is_only_rendered_in_panel_with_plugin(): void
     {
-
         $user = TestUser::factory()->create();
 
         $this->actingAs($user)
@@ -92,28 +91,9 @@ final class MenuLoginsTest extends TestCase
             ->assertSuccessful()
             ->assertSeeLivewire(MenuLogins::class);
 
-
         $this->actingAs($user)
-            ->get(Dashboard::getUrl(panel: $this->panelName . '-other' ))
+            ->get(Dashboard::getUrl(panel: $this->panelName.'-other'))
             ->assertSuccessful()
             ->assertDontSeeLivewire(MenuLogins::class);
     }
-
-    protected function registerTestPanel(): void
-    {
-        parent::registerTestPanel();
-        Filament::registerPanel(fn() => Panel::make()
-            ->darkMode(false)
-            ->id($this->panelName . '-other')
-            ->path($this->panelName  . '-other')
-            ->login()
-            ->pages([
-                Dashboard::class,
-            ])
-            ->plugins([
-            ]),
-        );
-    }
-
-
 }

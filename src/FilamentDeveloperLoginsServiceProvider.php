@@ -4,8 +4,8 @@ namespace DutchCodingCompany\FilamentDeveloperLogins;
 
 use DutchCodingCompany\FilamentDeveloperLogins\Livewire\MenuLogins;
 use DutchCodingCompany\FilamentDeveloperLogins\View\Components\DeveloperLogins;
-use Filament\Panel;
 use Filament\Facades\Filament;
+use Filament\Panel;
 use Filament\Support\Concerns\EvaluatesClosures;
 use Filament\Support\Facades\FilamentView;
 use Filament\View\PanelsRenderHook;
@@ -45,20 +45,17 @@ class FilamentDeveloperLoginsServiceProvider extends PackageServiceProvider
 
     protected static function registerRenderHooks(): void
     {
-        $panel = Filament::getCurrentPanel();
-
-        if(! self::enabledForPanel($panel)) {
-            return;
-        }
-
-        /** @var FilamentDeveloperLoginsPlugin $plugin */
-        $plugin = $panel->getPlugin('filament-developer-logins');
-
         FilamentView::registerRenderHook(
             PanelsRenderHook::AUTH_LOGIN_FORM_AFTER,
-            static function () use ($plugin) : ?string {
+            static function (): ?string {
+                $panel = Filament::getCurrentPanel();
+                if (! self::panelHasPlugin($panel)) {
+                    return null;
+                }
 
-                if (! $plugin->getEnabled() || ! self::enabledForPanel(Filament::getCurrentPanel())) {
+                /** @var FilamentDeveloperLoginsPlugin $plugin */
+                $plugin = $panel->getPlugin('filament-developer-logins');
+                if (! $plugin->getEnabled()) {
                     return null;
                 }
 
@@ -68,8 +65,15 @@ class FilamentDeveloperLoginsServiceProvider extends PackageServiceProvider
 
         FilamentView::registerRenderHook(
             PanelsRenderHook::GLOBAL_SEARCH_AFTER,
-            static function () use ($plugin) : ?string {
-                if (! $plugin->getEnabled() || ! $plugin->getSwitchable() || ! self::enabledForPanel(Filament::getCurrentPanel())) {
+            static function (): ?string {
+                $panel = Filament::getCurrentPanel();
+                if (! self::panelHasPlugin($panel)) {
+                    return null;
+                }
+
+                /** @var FilamentDeveloperLoginsPlugin $plugin */
+                $plugin = $panel->getPlugin('filament-developer-logins');
+                if (! $plugin->getEnabled() || ! $plugin->getSwitchable()) {
                     return null;
                 }
 
@@ -78,7 +82,7 @@ class FilamentDeveloperLoginsServiceProvider extends PackageServiceProvider
         );
     }
 
-    protected static function enabledForPanel(?Panel $panel)
+    protected static function panelHasPlugin(?Panel $panel): bool
     {
         return ! is_null($panel) && $panel->hasPlugin('filament-developer-logins');
     }
