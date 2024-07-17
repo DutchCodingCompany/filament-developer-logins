@@ -23,8 +23,10 @@ jobs:
         include:
           - laravel: 10.*
             testbench: 8.*
+            phpstan_neon: phpstan.laravel-10.neon
           - laravel: 11.*
             testbench: 9.*
+            phpstan_neon: phpstan.neon
         exclude:
           - laravel: 11.*
             php: 8.1
@@ -50,4 +52,4 @@ jobs:
         run: composer show -D
 
       - name: Run PHPStan
-        run: vendor/bin/phpstan --error-format=github
+        run: vendor/bin/phpstan --error-format=github --configuration=${{ matrix.phpstan_neon }}
