@@ -30,6 +30,9 @@ class FilamentDeveloperLoginsPlugin implements Plugin
 
     public string $column = 'email';
 
+    /**
+     * @var class-string<\Illuminate\Database\Eloquent\Model&\Illuminate\Contracts\Auth\Authenticatable>
+     */
     public string $modelClass = User::class;
 
     public function getId(): string
@@ -144,6 +147,9 @@ class FilamentDeveloperLoginsPlugin implements Plugin
         return $this->column;
     }
 
+    /**
+     * @param class-string<\Illuminate\Database\Eloquent\Model&\Illuminate\Contracts\Auth\Authenticatable> $modelClass
+     */
     public function modelClass(string $modelClass): static
     {
         if (! is_a($modelClass, Authenticatable::class, true)) {
@@ -155,6 +161,9 @@ class FilamentDeveloperLoginsPlugin implements Plugin
         return $this;
     }
 
+    /**
+     * @return class-string<\Illuminate\Database\Eloquent\Model&\Illuminate\Contracts\Auth\Authenticatable>
+     */
     public function getModelClass(): string
     {
         return $this->modelClass;

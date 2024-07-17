@@ -21,26 +21,28 @@ class FilamentDevelopersLogin
             $panel->auth()->logout();
         }
 
+        /** @var ?\Illuminate\Contracts\Auth\Authenticatable $model */
         $model = (new ($plugin->getModelClass()))
             ->where($plugin->getColumn(), $credentials)
-            ->firstOrFail();
+            ->first();
 
-        $panel->auth()->login($model);
-
-        if (
-            ($model instanceof FilamentUser) &&
-            (! $model->canAccessPanel($panel))
-        ) {
-            $panel->auth()->logout();
-
+        if (! $model) {
             throw ValidationException::withMessages([
-                'developer-logins-failed' => __('filament-developer-logins::auth.messages.failed'),
+                'developer-logins-failed' => __('filament-developer-logins::auth.messages.failed_not_found'),
             ]);
         }
 
-        session()->regenerate();
+        if (! $model instanceof FilamentUser || $model->canAccessPanel($panel)) {
+            $panel->auth()->login($model);
 
-        return redirect()
-            ->to($plugin->getRedirectTo() ?? $panel->getUrl());
+            session()->regenerate();
+
+            return redirect()
+                ->to($plugin->getRedirectTo() ?? $panel->getUrl());
+        }
+
+        throw ValidationException::withMessages([
+            'developer-logins-failed' => __('filament-developer-logins::auth.messages.failed'),
+        ]);
     }
 }

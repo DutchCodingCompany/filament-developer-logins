@@ -10,6 +10,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class TestUser extends Model implements Authenticatable, FilamentUser
 {
+    /**
+     * @use \Illuminate\Database\Eloquent\Factories\HasFactory<\DutchCodingCompany\FilamentDeveloperLogins\Database\Factories\TestUserFactory>
+     */
     use HasFactory;
 
     protected $table = 'users';
