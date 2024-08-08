@@ -35,6 +35,17 @@ In the `users` method you can define the users (note: the users must exist), the
 ]);
 ```
 
+In each Filament theme, ensure that the plugin Blade files are included in the `tailwind.config.js` to ensure proper CSS generation.
+
+```js
+{
+    content: [
+        //...
+        './vendor/dutchcodingcompany/filament-developer-logins/resources/**/*.blade.php',
+    ]
+}
+```
+
 ## Customization
 
 ### enabled()
