@@ -39,9 +39,9 @@ In the `users` method you can define the users (note: the users must exist), the
 
 ### enabled()
 
-By default, the plugin is disabled. You can enable it by calling the enabled() method. I strongly suggest enabling
-this plugin only in the local environment. You can achieve this by using the app()->environment() method. Additionally, 
-the enabled() method also accepts a closure if you wish to enable the plugin based on a custom condition.
+To customize the grid layout, you can use the columns() method. This method allows you to configure the grid layout based on your needs.
+
+By default, the columns() method sets the grid to 2 columns. You can adjust the default column count or specify different column counts for different screen sizes by passing an array.
 
 Example:
 
@@ -50,6 +50,34 @@ Example:
 FilamentDeveloperLoginsPlugin::make()
     ->enabled(app()->environment('local'))
 ```
+
+### columns()
+
+You may use the columns() method to easily create a grid within the section
+By default, the plugin is disabled. You can enable it by calling the enabled() method. I strongly suggest enabling
+this plugin only in the local environment. You can achieve this by using the app()->environment() method. Additionally,
+the enabled() method also accepts a closure if you wish to enable the plugin based on a custom condition.
+
+Example:
+
+```php
+// ...
+FilamentDeveloperLoginsPlugin::make()
+    ->columns() // default 2
+```
+
+or you can use an array like this
+
+```php
+// ...
+FilamentDeveloperLoginsPlugin::make()
+        ->columns([
+        'sm' => 3,
+        'xl' => 6,
+        '2xl' => 8,
+    ])
+```
+
 
 ### switchable()
 
