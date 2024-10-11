@@ -19,6 +19,8 @@ class FilamentDevelopersLogin
 
         if ($panel->auth()->check()) {
             $panel->auth()->logout();
+
+            session()->forget('password_hash_'.$panel->getAuthGuard());
         }
 
         /** @var ?\Illuminate\Contracts\Auth\Authenticatable $model */
