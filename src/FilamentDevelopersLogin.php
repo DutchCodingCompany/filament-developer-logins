@@ -21,9 +21,17 @@ class FilamentDevelopersLogin
             $panel->auth()->logout();
         }
 
+        /** @var ?\Illuminate\Contracts\Auth\Authenticatable $model */
         $model = (new ($plugin->getModelClass()))
             ->where($plugin->getColumn(), $credentials)
-            ->firstOrFail();
+            ->first();
+
+
+        if (! $model) {
+            throw ValidationException::withMessages([
+                'developer-logins-failed' => __('filament-developer-logins::auth.messages.failed_not_found'),
+            ]);
+        }
 
         $panel->auth()->login($model);
 
