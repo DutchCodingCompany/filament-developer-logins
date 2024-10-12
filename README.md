@@ -51,6 +51,33 @@ FilamentDeveloperLoginsPlugin::make()
     ->enabled(app()->environment('local'))
 ```
 
+### columns()
+
+To customize the grid layout, you can use the columns() method. This method allows you to configure the grid layout based on your needs.
+
+By default, the columns() method sets the grid to 2 columns. You can adjust the default column count or specify different column counts for different screen sizes by passing an array.
+
+Example:
+
+```php
+// ...
+FilamentDeveloperLoginsPlugin::make()
+    ->columns() // default 2
+```
+
+or you can use an array like this
+
+```php
+// ...
+FilamentDeveloperLoginsPlugin::make()
+        ->columns([
+        'sm' => 3,
+        'xl' => 6,
+        '2xl' => 8,
+    ])
+```
+
+
 ### switchable()
 
 By default, a "Switch to" button is shown in the top right corner of the screen, so you can easily switch between the provided users. 
