@@ -2,6 +2,10 @@
 
 All notable changes to `dutchcodingcompany/developer-logins` will be documented in this file.
 
+## 1.4.0 - 2024-10-12
+
+- Fix Layout with Filament Grid Style and HasColumns Trait by @slimani-dev in https://github.com/DutchCodingCompany/filament-developer-logins/pull/16
+
 ## 1.3.0 - 2024-10-11
 
 - Catch model-not-found errors + simplify code by @bert-w in https://github.com/DutchCodingCompany/filament-developer-logins/pull/10
