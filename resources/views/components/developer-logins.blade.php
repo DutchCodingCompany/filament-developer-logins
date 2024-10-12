@@ -27,8 +27,6 @@
                 :attributes="\Filament\Support\prepare_inherited_attributes($attributes)->class('fi-wi gap-4')"
         >
             @foreach ($users as $label => $credentials)
-                @if ($loop->first)
-                @endif
                 <form action="{{ route('filament-developer-logins.login-as') }}" method="POST">
                     @csrf
 

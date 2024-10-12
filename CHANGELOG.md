@@ -2,6 +2,11 @@
 
 All notable changes to `dutchcodingcompany/developer-logins` will be documented in this file.
 
+## 1.3.0 - 2024-10-11
+
+- Catch model-not-found errors + simplify code by @bert-w in https://github.com/DutchCodingCompany/filament-developer-logins/pull/10
+- Fix: Clear session password hash to resolve "Switch To" Button Error (Issue #15) by @slimani-dev in https://github.com/DutchCodingCompany/filament-developer-logins/pull/17
+
 ## 1.2.1 - 2024-06-19
 
 - Bugfix: Plugin issue with multiple panels by @ainesophaur in https://github.com/DutchCodingCompany/filament-developer-logins/pull/9
