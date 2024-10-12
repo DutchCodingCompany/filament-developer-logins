@@ -23,7 +23,7 @@ class DeveloperLogins extends Component
     {
         return view('filament-developer-logins::components.developer-logins', [
             'users' => $this->plugin->getUsers(),
-            'columns' => $this->plugin->getColumns()
+            'columns' => $this->plugin->getColumns(),
         ]);
     }
 }
