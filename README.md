@@ -39,9 +39,8 @@ In the `users` method you can define the users (note: the users must exist), the
 
 ### enabled()
 
-You may use the columns() method to easily create a grid within the section
 By default, the plugin is disabled. You can enable it by calling the enabled() method. I strongly suggest enabling
-this plugin only in the local environment. You can achieve this by using the app()->environment() method. Additionally,
+this plugin only in the local environment. You can achieve this by using the app()->environment() method. Additionally, 
 the enabled() method also accepts a closure if you wish to enable the plugin based on a custom condition.
 
 Example:
