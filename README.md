@@ -23,6 +23,7 @@ Register the plugin in the Filament panel provider (the default file is `app/Pro
 
 In the `users` method you can define the users (note: the users must exist), the key is used as a label on the login button and the value is used to search the user in the database.
 
+
 ```php
 // ...
 ->plugins([
@@ -32,6 +33,15 @@ In the `users` method you can define the users (note: the users must exist), the
             'Admin' => 'admin@example.com',
             'User' => 'user@example.com',
         ])
+]);
+```
+
+The users() method can also be passed a closure to compute the users list at render time, for example from the database.
+
+```php
+// ...
+FilamentDeveloperLoginsPlugin::make()
+    ->users(fn () => User::pluck('email', 'name')->toArray())
 ]);
 ```
 
@@ -113,7 +123,7 @@ FilamentDeveloperLoginsPlugin::make()
     ->modelClass(Admin::class)
 ```
 
-### RedirectTo()
+### redirectTo()
 
 By default, the user will be redirected using the `Filament::getUrl()` method, which directs them to the dashboard. In the case of multi-tenancy, the user will also be redirected to the correct tenant. If you prefer to use a different url, you can utilize the redirectTo() method.
 
