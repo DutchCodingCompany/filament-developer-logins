@@ -2,6 +2,10 @@
 
 All notable changes to `dutchcodingcompany/developer-logins` will be documented in this file.
 
+## 1.5.0 - 2024-11-19
+
+- Allow passing a closure for users. by @mathieutu in https://github.com/DutchCodingCompany/filament-developer-logins/pull/22
+
 ## 1.4.0 - 2024-10-12
 
 - Fix Layout with Filament Grid Style and HasColumns Trait by @slimani-dev in https://github.com/DutchCodingCompany/filament-developer-logins/pull/16
