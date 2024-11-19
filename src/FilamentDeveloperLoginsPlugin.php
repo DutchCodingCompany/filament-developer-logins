@@ -23,7 +23,7 @@ class FilamentDeveloperLoginsPlugin implements Plugin
     /**
      * @var array<string, string>
      */
-    public CLosure | array $users = [];
+    public Closure | array $users = [];
 
     public Closure | string | null $redirectTo = null;
 
@@ -105,7 +105,7 @@ class FilamentDeveloperLoginsPlugin implements Plugin
     }
 
     /**
-     * @param CLosure | array<string, string> $users
+     * @param Closure | array<string, string> $users
      *
      * @return $this
      */
