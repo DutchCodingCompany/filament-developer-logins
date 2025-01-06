@@ -2,6 +2,11 @@
 
 All notable changes to `dutchcodingcompany/developer-logins` will be documented in this file.
 
+## 1.6.0 - 2025-01-06
+
+- Include PHP 8.4 in the workflow by @bramr94 in https://github.com/DutchCodingCompany/filament-developer-logins/pull/23
+- `url.intended` as highest priority by @bilogic in https://github.com/DutchCodingCompany/filament-developer-logins/pull/26
+
 ## 1.5.0 - 2024-11-19
 
 - Allow passing a closure for users. by @mathieutu in https://github.com/DutchCodingCompany/filament-developer-logins/pull/22
