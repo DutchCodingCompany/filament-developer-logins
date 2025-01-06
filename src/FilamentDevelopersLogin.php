@@ -6,6 +6,7 @@ use DutchCodingCompany\FilamentDeveloperLogins\Exceptions\ImplementationExceptio
 use Filament\Models\Contracts\FilamentUser;
 use Filament\Panel;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Validation\ValidationException;
 use Livewire\Features\SupportRedirects\Redirector;
 
@@ -50,6 +51,6 @@ class FilamentDevelopersLogin
         session()->regenerate();
 
         return redirect()
-            ->to($plugin->getRedirectTo() ?? $panel->getUrl());
+            ->to(Redirect::getIntendedUrl() ?? $plugin->getRedirectTo() ?? $panel->getUrl());
     }
 }
