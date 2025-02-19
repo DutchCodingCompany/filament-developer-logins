@@ -2,6 +2,10 @@
 
 All notable changes to `dutchcodingcompany/developer-logins` will be documented in this file.
 
+## 1.7.0 - 2025-02-19
+
+- fix: redirect to current panel from menu login by @Dipesh79 in https://github.com/DutchCodingCompany/filament-developer-logins/pull/30
+
 ## 1.6.0 - 2025-01-06
 
 - Include PHP 8.4 in the workflow by @bramr94 in https://github.com/DutchCodingCompany/filament-developer-logins/pull/23
