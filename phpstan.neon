@@ -9,3 +9,16 @@ parameters:
         - database
         - src
         - tests
+
+    ignoreErrors:
+        -
+            message: '#^Parameter \#1 \$view of function view expects view\-string\|null, string given\.$#'
+            identifier: argument.type
+            count: 1
+            path: src/Livewire/MenuLogins.php
+
+        -
+            message: '#^Parameter \#1 \$view of function view expects view\-string\|null, string given\.$#'
+            identifier: argument.type
+            count: 1
+            path: src/View/Components/DeveloperLogins.php\

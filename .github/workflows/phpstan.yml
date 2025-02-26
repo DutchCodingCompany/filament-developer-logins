@@ -27,7 +27,7 @@ jobs:
             phpstan_neon: phpstan.laravel-10.neon
           - laravel: 11.*
             testbench: 9.*
-            phpstan_neon: phpstan.neon
+            phpstan_neon: phpstan.laravel-11.neon
           - laravel: 12.*
             testbench: 10.*
             phpstan_neon: phpstan.neon
