@@ -1,36 +1,43 @@
 parameters:
 	ignoreErrors:
 		-
-			message: "#^Class DutchCodingCompany\\\\FilamentDeveloperLogins\\\\Database\\\\Factories\\\\TestUserFactory extends generic class Illuminate\\\\Database\\\\Eloquent\\\\Factories\\\\Factory but does not specify its types\\: TModel$#"
+			message: '#^Class DutchCodingCompany\\FilamentDeveloperLogins\\Database\\Factories\\TestUserFactory extends generic class Illuminate\\Database\\Eloquent\\Factories\\Factory but does not specify its types\: TModel$#'
+			identifier: missingType.generics
 			count: 1
 			path: database/factories/TestUserFactory.php
 
 		-
-			message: "#^Class App\\\\Models\\\\User not found\\.$#"
+			message: '#^Class App\\Models\\User not found\.$#'
+			identifier: class.notFound
 			count: 1
 			path: src/FilamentDeveloperLoginsPlugin.php
 
 		-
-			message: "#^Property DutchCodingCompany\\\\FilamentDeveloperLogins\\\\FilamentDeveloperLoginsPlugin\\:\\:\\$modelClass \\(class\\-string\\<Illuminate\\\\Contracts\\\\Auth\\\\Authenticatable&Illuminate\\\\Database\\\\Eloquent\\\\Model\\>\\) does not accept default value of type string\\.$#"
+			message: '#^Property DutchCodingCompany\\FilamentDeveloperLogins\\FilamentDeveloperLoginsPlugin\:\:\$modelClass \(class\-string\<Illuminate\\Contracts\\Auth\\Authenticatable&Illuminate\\Database\\Eloquent\\Model\>\) does not accept default value of type string\.$#'
+			identifier: property.defaultValue
 			count: 1
 			path: src/FilamentDeveloperLoginsPlugin.php
 
 		-
-			message: "#^Call to an undefined method Illuminate\\\\Testing\\\\TestResponse\\:\\:assertDontSeeLivewire\\(\\)\\.$#"
+			message: '#^Call to an undefined method Illuminate\\Testing\\TestResponse\:\:assertDontSeeLivewire\(\)\.$#'
+			identifier: method.notFound
 			count: 3
 			path: tests/Feature/MenuLoginsTest.php
 
 		-
-			message: "#^Call to an undefined method Illuminate\\\\Testing\\\\TestResponse\\:\\:assertSeeLivewire\\(\\)\\.$#"
+			message: '#^Call to an undefined method Illuminate\\Testing\\TestResponse\:\:assertSeeLivewire\(\)\.$#'
+			identifier: method.notFound
 			count: 2
 			path: tests/Feature/MenuLoginsTest.php
 
 		-
-			message: "#^Access to an undefined property DutchCodingCompany\\\\FilamentDeveloperLogins\\\\Tests\\\\Fixtures\\\\TestUser\\:\\:\\$is_admin\\.$#"
+			message: '#^Access to an undefined property DutchCodingCompany\\FilamentDeveloperLogins\\Tests\\Fixtures\\TestUser\:\:\$is_admin\.$#'
+			identifier: property.notFound
 			count: 1
 			path: tests/Fixtures/TestUser.php
 
 		-
-			message: "#^Parameter \\#1 \\$callback of static method Illuminate\\\\Database\\\\Eloquent\\\\Factories\\\\Factory\\<Illuminate\\\\Database\\\\Eloquent\\\\Model\\>\\:\\:guessFactoryNamesUsing\\(\\) expects callable\\(class\\-string\\<Illuminate\\\\Database\\\\Eloquent\\\\Model\\>\\)\\: class\\-string\\<Illuminate\\\\Database\\\\Eloquent\\\\Factories\\\\Factory\\>, Closure\\(string\\)\\: non\\-falsy\\-string given\\.$#"
+			message: '#^Parameter \#1 \$callback of static method Illuminate\\Database\\Eloquent\\Factories\\Factory\<Illuminate\\Database\\Eloquent\\Model\>\:\:guessFactoryNamesUsing\(\) expects callable\(class\-string\<Illuminate\\Database\\Eloquent\\Model\>\)\: class\-string\<Illuminate\\Database\\Eloquent\\Factories\\Factory\>, Closure\(string\)\: non\-falsy\-string given\.$#'
+			identifier: argument.type
 			count: 1
 			path: tests/TestCase.php
