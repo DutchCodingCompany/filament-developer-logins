@@ -10,6 +10,7 @@ use Filament\Forms\Concerns\HasColumns;
 use Filament\Panel;
 use Filament\Support\Concerns\EvaluatesClosures;
 use Illuminate\Contracts\Auth\Authenticatable;
+use App\Models\User
 
 class FilamentDeveloperLoginsPlugin implements Plugin
 {
@@ -18,7 +19,7 @@ class FilamentDeveloperLoginsPlugin implements Plugin
     /**
      * @var class-string<\Illuminate\Database\Eloquent\Model&\Illuminate\Contracts\Auth\Authenticatable>
      */
-    public string $modelClass = '';
+    public string $modelClass = null;
 
     public Closure | bool $enabled = false;
 
@@ -37,7 +38,7 @@ class FilamentDeveloperLoginsPlugin implements Plugin
 
     public function __construct()
     {
-        $this->modelClass = config('auth.providers.users.model') ?? \App\Models\User::class;
+        $this->modelClass = config('auth.providers.users.model') ?? User::class;
     }
 
     public function getId(): string
