@@ -19,7 +19,7 @@ class FilamentDeveloperLoginsPlugin implements Plugin
     /**
      * @var class-string<\Illuminate\Database\Eloquent\Model&\Illuminate\Contracts\Auth\Authenticatable>
      */
-    public string $modelClass = null;
+    public string $modelClass = '';
 
     public Closure | bool $enabled = false;
 
