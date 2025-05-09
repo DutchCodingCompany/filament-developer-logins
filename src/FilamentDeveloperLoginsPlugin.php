@@ -10,7 +10,7 @@ use Filament\Forms\Concerns\HasColumns;
 use Filament\Panel;
 use Filament\Support\Concerns\EvaluatesClosures;
 use Illuminate\Contracts\Auth\Authenticatable;
-use App\Models\User
+use App\Models\User;
 
 class FilamentDeveloperLoginsPlugin implements Plugin
 {
