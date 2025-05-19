@@ -27,9 +27,9 @@ class MenuLogins extends Component
         ]);
     }
 
-    protected function getCurrentUser(): string
+    protected function getCurrentUser(): ?string
     {
-        return Filament::auth()->user()->{$this->plugin->getColumn()};
+        return Filament::auth()->user()?->{$this->plugin->getColumn()};
     }
 
     public function loginAs(string $credentials): RedirectResponse | Redirector
