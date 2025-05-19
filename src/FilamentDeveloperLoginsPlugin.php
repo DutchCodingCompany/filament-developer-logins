@@ -2,7 +2,6 @@
 
 namespace DutchCodingCompany\FilamentDeveloperLogins;
 
-use App\Models\User;
 use Closure;
 use DutchCodingCompany\FilamentDeveloperLogins\Exceptions\ImplementationException;
 use Filament\Contracts\Plugin;
@@ -11,10 +10,16 @@ use Filament\Forms\Concerns\HasColumns;
 use Filament\Panel;
 use Filament\Support\Concerns\EvaluatesClosures;
 use Illuminate\Contracts\Auth\Authenticatable;
+use App\Models\User;
 
 class FilamentDeveloperLoginsPlugin implements Plugin
 {
     use EvaluatesClosures, HasColumns;
+
+    /**
+     * @var class-string<\Illuminate\Database\Eloquent\Model&\Illuminate\Contracts\Auth\Authenticatable>
+     */
+    public string $modelClass = '';
 
     public Closure | bool $enabled = false;
 
@@ -31,10 +36,10 @@ class FilamentDeveloperLoginsPlugin implements Plugin
 
     public string $column = 'email';
 
-    /**
-     * @var class-string<\Illuminate\Database\Eloquent\Model&\Illuminate\Contracts\Auth\Authenticatable>
-     */
-    public string $modelClass = User::class;
+    public function __construct()
+    {
+        $this->modelClass = config('auth.providers.users.model') ?? User::class;
+    }
 
     public function getId(): string
     {
