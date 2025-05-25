@@ -2,6 +2,10 @@
 
 All notable changes to `dutchcodingcompany/developer-logins` will be documented in this file.
 
+## 1.8.1 - 2025-05-19
+
+- Bugfix: Allow showing the menu while disconnected by @mathieutu in https://github.com/DutchCodingCompany/filament-developer-logins/pull/35
+
 ## 1.8.0 - 2025-02-26
 
 - Add support for Laravel 12 by @bramr94 in https://github.com/DutchCodingCompany/filament-developer-logins/pull/32
