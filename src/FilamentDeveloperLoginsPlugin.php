@@ -158,10 +158,6 @@ class FilamentDeveloperLoginsPlugin implements Plugin
      */
     public function modelClass(string $modelClass): static
     {
-        if (! is_a($modelClass, Authenticatable::class, true)) {
-            throw new ImplementationException('The model class must implement the "\Illuminate\Contracts\Auth\Authenticatable" interface.');
-        }
-
         $this->modelClass = $modelClass;
 
         return $this;
