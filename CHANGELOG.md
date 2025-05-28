@@ -2,6 +2,10 @@
 
 All notable changes to `dutchcodingcompany/developer-logins` will be documented in this file.
 
+## 1.9.0 - 2025-05-28
+
+- feat: prioritize auth config for User model path resolution by @anheru88 in https://github.com/DutchCodingCompany/filament-developer-logins/pull/33
+
 ## 1.8.1 - 2025-05-19
 
 - Bugfix: Allow showing the menu while disconnected by @mathieutu in https://github.com/DutchCodingCompany/filament-developer-logins/pull/35
