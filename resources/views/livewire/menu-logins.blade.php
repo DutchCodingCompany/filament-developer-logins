@@ -2,7 +2,7 @@
     <div>
         <x-filament::dropdown>
             <x-slot name="trigger">
-                <x-filament::button icon="heroicon-o-user" color="gray" outlined="false">
+                <x-filament::button icon="{{ $switchableIcon }}" color="gray" outlined="false">
                     {{ __('filament-developer-logins::auth.switch-to') }}
                 </x-filament::button>
             </x-slot>

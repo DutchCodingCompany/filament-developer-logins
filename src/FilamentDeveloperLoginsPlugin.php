@@ -24,6 +24,8 @@ class FilamentDeveloperLoginsPlugin implements Plugin
 
     public Closure | bool $switchable = true;
 
+    public ?string $switchableIcon = 'heroicon-o-user';
+
     /**
      * @var array<string, string>
      */
@@ -106,6 +108,18 @@ class FilamentDeveloperLoginsPlugin implements Plugin
     public function getSwitchable(): bool
     {
         return $this->evaluate($this->switchable);
+    }
+
+    public function switchableIcon(?string $value): static
+    {
+        $this->switchableIcon = $value;
+
+        return $this;
+    }
+
+    public function getSwitchableIcon(): ?string
+    {
+        return $this->switchableIcon;
     }
 
     /**
