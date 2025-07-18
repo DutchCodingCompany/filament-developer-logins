@@ -1,3 +1,7 @@
+@php
+    use Illuminate\View\ComponentAttributeBag;
+@endphp
+
 @if(count($users) > 0)
     <div class="flex flex-col gap-y-6">
 
@@ -17,14 +21,8 @@
             </div>
         @endif
 
-        <x-filament::grid
-                :default="$columns['default'] ?? 1"
-                :sm="$columns['sm'] ?? null"
-                :md="$columns['md'] ?? null"
-                :lg="$columns['lg'] ?? ($columns ? (is_array($columns) ? null : $columns) : 2)"
-                :xl="$columns['xl'] ?? null"
-                :two-xl="$columns['2xl'] ?? null"
-                :attributes="\Filament\Support\prepare_inherited_attributes($attributes)->class('fi-wi gap-4')"
+        <div
+            {{ (new ComponentAttributeBag)->grid($columns, GridDirection::Column)->class(['fi-wi gap-4']) }}
         >
             @foreach ($users as $label => $credentials)
                 <form action="{{ route('filament-developer-logins.login-as') }}" method="POST">
@@ -38,6 +36,6 @@
                     </x-filament::button>
                 </form>
             @endforeach
-        </x-filament::grid>
+        </div>
     </div>
 @endif

@@ -45,6 +45,17 @@ FilamentDeveloperLoginsPlugin::make()
 ]);
 ```
 
+### Custom Theme
+
+You will need to create a [custom theme](https://filamentphp.com/docs/4.x/styling/overview#creating-a-custom-theme) for the login options to be styled correctly. 
+
+Once that is done, add this line to your theme.css file before compiling everything with `npm run build`.
+
+```css
+@source '../../../../vendor/dutchcodingcompany/filament-developer-logins/resources/views/**/*';
+```
+
+
 ## Customization
 
 ### enabled()
