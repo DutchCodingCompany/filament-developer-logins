@@ -1,5 +1,6 @@
 @php
     use Illuminate\View\ComponentAttributeBag;
+    use Filament\Support\Enums\GridDirection;
 @endphp
 
 @if(count($users) > 0)
