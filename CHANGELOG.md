@@ -2,6 +2,10 @@
 
 All notable changes to `dutchcodingcompany/developer-logins` will be documented in this file.
 
+## 1.10.0 - 2025-08-01
+
+- Change label if user is not authenticated. by @bramr94 in https://github.com/DutchCodingCompany/filament-developer-logins/pull/42
+
 ## 1.9.0 - 2025-05-28
 
 - feat: prioritize auth config for User model path resolution by @anheru88 in https://github.com/DutchCodingCompany/filament-developer-logins/pull/33
