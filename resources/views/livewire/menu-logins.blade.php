@@ -3,7 +3,7 @@
         <x-filament::dropdown>
             <x-slot name="trigger">
                 <x-filament::button icon="heroicon-o-user" color="gray" outlined="false">
-                    {{ __('filament-developer-logins::auth.switch-to') }}
+                    {{ auth()->check() ? __('filament-developer-logins::auth.switch-to') : __('filament-developer-logins::auth.login-as') }}
                 </x-filament::button>
             </x-slot>
 
