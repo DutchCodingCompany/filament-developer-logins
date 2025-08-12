@@ -7,8 +7,8 @@ use Closure;
 use DutchCodingCompany\FilamentDeveloperLogins\Exceptions\ImplementationException;
 use Filament\Contracts\Plugin;
 use Filament\Facades\Filament;
-use Filament\Schemas\Concerns\HasColumns;
 use Filament\Panel;
+use Filament\Schemas\Concerns\HasColumns;
 use Filament\Support\Concerns\EvaluatesClosures;
 
 class FilamentDeveloperLoginsPlugin implements Plugin
