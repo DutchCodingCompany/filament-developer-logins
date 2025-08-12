@@ -29,6 +29,8 @@ class TestCase extends Orchestra
     {
         parent::setUp();
 
+        Filament::setCurrentPanel($this->panelName);
+
         Factory::guessFactoryNamesUsing(
             fn (
                 string $modelName,
