@@ -7,7 +7,7 @@ use Closure;
 use DutchCodingCompany\FilamentDeveloperLogins\Exceptions\ImplementationException;
 use Filament\Contracts\Plugin;
 use Filament\Facades\Filament;
-use Filament\Forms\Concerns\HasColumns;
+use Filament\Schemas\Concerns\HasColumns;
 use Filament\Panel;
 use Filament\Support\Concerns\EvaluatesClosures;
 
