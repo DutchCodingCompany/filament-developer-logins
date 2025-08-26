@@ -2,6 +2,8 @@
 
 namespace DutchCodingCompany\FilamentDeveloperLogins\Tests;
 
+use BladeUI\Heroicons\BladeHeroiconsServiceProvider;
+use BladeUI\Icons\BladeIconsServiceProvider;
 use DutchCodingCompany\FilamentDeveloperLogins\FilamentDeveloperLoginsPlugin;
 use DutchCodingCompany\FilamentDeveloperLogins\FilamentDeveloperLoginsServiceProvider;
 use DutchCodingCompany\FilamentDeveloperLogins\Http\Controllers\DeveloperLoginsController;
@@ -13,6 +15,7 @@ use Filament\Forms\FormsServiceProvider;
 use Filament\Notifications\NotificationsServiceProvider;
 use Filament\Pages\Dashboard;
 use Filament\Panel;
+use Filament\Schemas\SchemasServiceProvider;
 use Filament\Support\SupportServiceProvider;
 use Filament\Widgets\WidgetsServiceProvider;
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -106,6 +109,9 @@ class TestCase extends Orchestra
             NotificationsServiceProvider::class,
             FilamentDeveloperLoginsServiceProvider::class,
             LivewireServiceProvider::class,
+            BladeIconsServiceProvider::class,
+            BladeHeroiconsServiceProvider::class,
+            SchemasServiceProvider::class,
         ];
     }
 }
