@@ -24,6 +24,7 @@ class MenuLogins extends Component
         return view('filament-developer-logins::livewire.menu-logins', [
             'users' => $this->plugin->getUsers(),
             'current' => $this->getCurrentUser(),
+            'switchableIcon' => $this->plugin->switchableIcon,
         ]);
     }
 
