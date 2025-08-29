@@ -24,6 +24,8 @@ class FilamentDeveloperLoginsPlugin implements Plugin
 
     public Closure | bool $switchable = true;
 
+    public ?string $switchableIcon = 'heroicon-o-user';
+
     /**
      * @var array<string, string>
      */
