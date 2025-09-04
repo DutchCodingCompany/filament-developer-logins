@@ -25,9 +25,11 @@ class FilamentDevelopersLogin
         }
 
         /** @var ?\Illuminate\Contracts\Auth\Authenticatable $model */
-        $model = (new ($plugin->getModelClass()))
-            ->where($plugin->getColumn(), $credentials)
-            ->first();
+        $model = $plugin->getModelCallback($plugin, $credentials)->first();
+
+//        $model = (new ($plugin->getModelClass()))
+//            ->where($plugin->getColumn(), $credentials)
+//            ->first();
 
         if (! $model) {
             throw ValidationException::withMessages([

@@ -103,6 +103,27 @@ FilamentDeveloperLoginsPlugin::make()
     ->modelClass(Admin::class)
 ```
 
+### Override query
+
+Default the plugin will retrieve the user by searching the provided model using the specified column. If you want to implement your own logic to retrieve the user, you can use the `modelCallback()` method. 
+This method accepts a closure and provides the plugin and should return an instance of `Illuminate\Database\Eloquent\Builder`.
+
+Example:
+
+```php
+use DutchCodingCompany\FilamentDeveloperLogins\FilamentDeveloperLoginsPlugin;
+use Illuminate\Database\Eloquent\Builder;;
+
+FilamentDeveloperLoginsPlugin::make()
+    ->modelCallback(
+        fn (FilamentDeveloperLoginsPlugin $plugin, string $credentials): Builder 
+            => (new $plugin->getModelClass())
+                ->where($plugin->getColumn(), $credentials)
+                // Above is the default behavior. For example if you are using a global scope you can remove it here.
+                ->withoutGlobalScopes()
+    )
+```
+
 ### redirectTo()
 
 By default, the user will be redirected using the `Filament::getUrl()` method, which directs them to the dashboard. In the case of multi-tenancy, the user will also be redirected to the correct tenant. If you prefer to use a different url, you can utilize the redirectTo() method.

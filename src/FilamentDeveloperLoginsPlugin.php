@@ -10,6 +10,7 @@ use Filament\Facades\Filament;
 use Filament\Panel;
 use Filament\Schemas\Concerns\HasColumns;
 use Filament\Support\Concerns\EvaluatesClosures;
+use Illuminate\Database\Eloquent\Builder;
 
 class FilamentDeveloperLoginsPlugin implements Plugin
 {
@@ -21,6 +22,8 @@ class FilamentDeveloperLoginsPlugin implements Plugin
     public string $modelClass = '';
 
     public Closure | bool $enabled = false;
+
+    public ?Closure $modelCallback = null;
 
     public Closure | bool $switchable = true;
 
@@ -94,6 +97,28 @@ class FilamentDeveloperLoginsPlugin implements Plugin
     public function getEnabled(): bool
     {
         return $this->evaluate($this->enabled);
+    }
+
+    public function modelCallback(Closure $callback): static
+    {
+        $this->modelCallback = $callback;
+
+        return $this;
+    }
+
+    /**
+     * @param FilamentDeveloperLoginsPlugin $plugin
+     * @param string $credentials
+     * @return Builder<\Illuminate\Database\Eloquent\Model&\Illuminate\Contracts\Auth\Authenticatable>
+     */
+    public function getModelCallback(self $plugin, string $credentials): Builder
+    {
+        return $this->evaluate(
+            value: $this->modelCallback
+                ?? static fn (): Builder => (new ($plugin->getModelClass()))
+                    ->where($plugin->getColumn(), $credentials),
+            namedInjections: ['plugin' => $plugin, 'credentials' => $credentials],
+        );
     }
 
     public function switchable(Closure | bool $value): static
