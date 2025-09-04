@@ -27,10 +27,6 @@ class FilamentDevelopersLogin
         /** @var ?\Illuminate\Contracts\Auth\Authenticatable $model */
         $model = $plugin->getModelCallback($plugin, $credentials)->first();
 
-//        $model = (new ($plugin->getModelClass()))
-//            ->where($plugin->getColumn(), $credentials)
-//            ->first();
-
         if (! $model) {
             throw ValidationException::withMessages([
                 'developer-logins-failed' => __('filament-developer-logins::auth.messages.failed_not_found'),
