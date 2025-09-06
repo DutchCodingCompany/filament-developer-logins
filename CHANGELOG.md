@@ -2,6 +2,10 @@
 
 All notable changes to `dutchcodingcompany/developer-logins` will be documented in this file.
 
+## 2.0.1 - 2025-09-06
+
+- Fix dropdown placement by @mathieutu in https://github.com/DutchCodingCompany/filament-developer-logins/pull/47
+
 ## 2.0.0 - 2025-08-26
 
 - Support filament 4 by @bramr94 in https://github.com/DutchCodingCompany/filament-developer-logins/pull/44
