@@ -51,6 +51,6 @@ class FilamentDevelopersLogin
         session()->regenerate();
 
         return redirect()
-            ->to(Redirect::getIntendedUrl() ?? $plugin->getRedirectTo() ?? $panel->getUrl());
+            ->intended($plugin->getRedirectTo() ?? $panel->getUrl());
     }
 }
