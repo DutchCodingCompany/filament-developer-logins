@@ -55,7 +55,7 @@ class TestCase extends Orchestra
                 ])
                 ->plugins([
                     FilamentDeveloperLoginsPlugin::make()
-                        ->enabled()
+                        ->enabled(true)
                         ->users([
                             'Administrator' => 'developer@dutchcodingcompany.com',
                         ])

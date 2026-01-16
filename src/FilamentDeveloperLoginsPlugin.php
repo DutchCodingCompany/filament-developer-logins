@@ -84,12 +84,13 @@ class FilamentDeveloperLoginsPlugin implements Plugin
         throw new ImplementationException('No panel found with filament-developer-logins plugin.');
     }
 
-    public function enabled(Closure | bool $value = true): static
+    public function enabled(Closure | bool $value): static
     {
         $this->enabled = $value;
 
         return $this;
     }
+
 
     public function getEnabled(): bool
     {
