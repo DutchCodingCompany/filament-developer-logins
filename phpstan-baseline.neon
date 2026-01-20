@@ -31,6 +31,12 @@ parameters:
 			path: tests/Feature/MenuLoginsTest.php
 
 		-
+			message: '#^Unable to resolve the template type TComponent in call to method Livewire\\LivewireManager\:\:test\(\)$#'
+			identifier: argument.templateType
+			count: 3
+			path: tests/Feature/MenuLoginsTest.php
+
+		-
 			message: '#^Access to an undefined property DutchCodingCompany\\FilamentDeveloperLogins\\Tests\\Fixtures\\TestUser\:\:\$is_admin\.$#'
 			identifier: property.notFound
 			count: 1
