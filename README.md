@@ -13,6 +13,7 @@ This plugin allows you to enable one-click logins for your local Filament panels
 
 | Filament version                                                                                                                                              | Package version | Readme                                                                               |
 |---------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------|--------------------------------------------------------------------------------------|
+[^5.x](https://github.com/filamentphp/filament/tree/5.x)                                                                                                      | ^2.1.x           | [Link](https://github.com/DutchCodingCompany/filament-developer-logins/blob/main/README.md) |
 | [^4.x](https://github.com/filamentphp/filament/tree/4.x)                                                                                                      | 2.x.x           | [Link](https://github.com/DutchCodingCompany/filament-developer-logins/blob/main/README.md) |
 | [^3.x](https://github.com/filamentphp/filament/tree/3.x)    | 1.x.x           | [Link](https://github.com/DutchCodingCompany/filament-developer-logins/blob/1.10.0/README.md) |
 
