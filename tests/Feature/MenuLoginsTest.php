@@ -2,6 +2,7 @@
 
 namespace DutchCodingCompany\FilamentDeveloperLogins\Tests\Feature;
 
+use DutchCodingCompany\FilamentDeveloperLogins\Exceptions\ImplementationException;
 use DutchCodingCompany\FilamentDeveloperLogins\FilamentDeveloperLoginsPlugin;
 use DutchCodingCompany\FilamentDeveloperLogins\Livewire\MenuLogins;
 use DutchCodingCompany\FilamentDeveloperLogins\Tests\Fixtures\TestUser;
@@ -90,6 +91,8 @@ final class MenuLoginsTest extends TestCase
             ->get(Dashboard::getUrl(panel: $this->panelName))
             ->assertSuccessful()
             ->assertSeeLivewire(MenuLogins::class);
+
+        $this->expectException(ImplementationException::class);
 
         $this->actingAs($user)
             ->get(Dashboard::getUrl(panel: $this->panelName.'-other'))
