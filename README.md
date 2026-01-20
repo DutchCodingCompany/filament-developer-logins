@@ -35,7 +35,7 @@ In the `users` method you can define the users (note: the users must exist), the
 // ...
 ->plugins([
     FilamentDeveloperLoginsPlugin::make()
-        ->enabled()
+        ->enabled(app()->environment('local'))
         ->users([
             'Admin' => 'admin@example.com',
             'User' => 'user@example.com',
@@ -65,7 +65,7 @@ Example:
 ```php
 // ...
 FilamentDeveloperLoginsPlugin::make()
-    ->enabled(app()->environment('local'))
+    ->enabled(fn() => app()->environment('local'))
 ```
 
 ### switchable()
