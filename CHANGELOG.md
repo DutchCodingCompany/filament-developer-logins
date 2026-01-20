@@ -2,6 +2,12 @@
 
 All notable changes to `dutchcodingcompany/developer-logins` will be documented in this file.
 
+## 2.1.0 - 2026-01-20
+
+- Feature/add php 85 to workflow by @bramr94 in https://github.com/DutchCodingCompany/filament-developer-logins/pull/50
+- Add support for Filament 5 by @gizburdt in https://github.com/DutchCodingCompany/filament-developer-logins/pull/54
+- Make the enabled() function required by @thyseus in https://github.com/DutchCodingCompany/filament-developer-logins/pull/53
+
 ## 2.0.1 - 2025-09-06
 
 - Fix dropdown placement by @mathieutu in https://github.com/DutchCodingCompany/filament-developer-logins/pull/47
