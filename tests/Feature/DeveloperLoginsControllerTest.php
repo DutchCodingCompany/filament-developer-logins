@@ -52,7 +52,7 @@ final class DeveloperLoginsControllerTest extends TestCase
     public function test_403_is_returned_when_plugin_is_disabled(): void
     {
         FilamentDeveloperLoginsPlugin::current()
-            ->enabled(false);
+            ->enabled();
 
         $user = TestUser::factory()->create([
             'email' => 'developer@dutchcodingcompany.com',
