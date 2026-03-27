@@ -2,6 +2,10 @@
 
 All notable changes to `dutchcodingcompany/developer-logins` will be documented in this file.
 
+## Unreleased
+
+- Add support for Laravel 13
+
 ## 2.1.0 - 2026-01-20
 
 - Feature/add php 85 to workflow by @bramr94 in https://github.com/DutchCodingCompany/filament-developer-logins/pull/50
